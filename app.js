@@ -18,26 +18,70 @@ mongoose.connect(process.env.DBURL)
 .catch((err) => console.log(err))
 
 // TESTING OUR MODEL AND DB
-app.get('/add-trainee',(req,res)=>{
+// for saving to the DB
+app.get('/add-trainee', async (req,res)=>{
     const TRAINEES = new Trainees({
         name:'Christy',
         profession:'senior dev',
-        description:'sge dey code dieee'
+        description:'she dey code dieee'
 
 })
-    TRAINEES.save()
-    .then((result)=>{
-        res.send(result)
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
+    // TRAINEES.save()
+    // .then((result)=>{
+    //     res.send(result)
+    // })
+    // .catch((err)=>{
+    //     console.log(err);
+    // })
     try{
-
+const savedTrainees = await TRAINEES.save()
+res.send(savedTrainees)
     }
     catch(err){
         console.log(err);
     }
+
+    // for getting all info from the DB
+    app.get('/all-trainees',async (req,res)=>{
+        try{
+            const allTrainees = await Trainees.find()
+            res.send(allTrainees)
+        }catch (err){
+            console.log(err);
+        }
+
+
+
+        // .then((results)=>{
+            // res.send(results)
+        // }) 
+        // .catch((err)=>{
+        //     console.log(err);
+        // })
+
+    })
+
+// to get a single trainee
+app.get('/single-trainee',async(req,res)=>{
+    try{
+        const singleTrainee = await Trainees.findById
+        ('647df2eb997cd86341fb583b')
+        res.send(singleTrainee)
+    }
+    catch(err){
+        console.log(err);
+    }
+    // Trainees.findById('647df2eb997cd86341fb583b')
+    // .then((result) => {
+    //     res.send(result)
+    // })
+    // .catch((err) => {
+    //     console.log(err);
+    // })
+})
+    
+
+
 })
 // routes
 
