@@ -1,43 +1,16 @@
-/* form {
-    margin-top: 3rem;
+body{
+    background-color: aqua;
+}
+
+li{
+    list-style-type: none;
+}
+nav{
     display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    gap: 1rem;
-  }
-  
-  form label {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: white;
-    font-size: 18px;
-  }
-  
-  form input {
-    padding: 0.8rem;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-  }
-  
-  form textarea {
-      outline: none;
-  }
-  
-  form button {
-    padding: 0.7rem;
-    width: 50%;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    background-color: dodgerblue;
-    color: white;
-    font-weight: bold;
-  }
-  
-  footer {
-    position: fixed;
-  }
-   */
+    justify-content: space-around;
+    gap: 850px;
+}
+ul{
+    display: flex;
+    gap: 20px;
+}
